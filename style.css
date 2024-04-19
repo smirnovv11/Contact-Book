@@ -79,6 +79,7 @@ body {
     letter-spacing: 0.5px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    user-select: none;
 }
 .btn:hover {
     background-color: var(--primary-hover-color);
@@ -90,10 +91,10 @@ body {
     background-color: var(--alt-hover-color);
 }
 
-.groups-left-panel {
+.left-panel {
     display: none;
 }
-.groups-left-panel.active {
+.left-panel.active {
     display: block;
     position: fixed;
     top: 0;
@@ -147,16 +148,22 @@ body {
 .panel-header > .btn:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
-.groups-container {
+.el-container {
     gap: var(--el-gap);
     display: flex;
     flex-direction: column;
     margin: var(--top-margin);
 }
+.el-container > select {
+    
+}
 .group-element {
     display: flex;
     align-self: center;
     gap: var(--el-gap);
+    width: 100%;
+}
+.group-element > input {
     width: 100%;
 }
 input {
@@ -168,7 +175,6 @@ input {
     border: none;
     border-radius: var(--radius);
     padding: 11px 12px;
-    width: 100%;
 }
 input:focus {
     outline: none;
@@ -211,4 +217,28 @@ input:focus {
     opacity: 0.3;
     font-weight: 500;
     font-size: var(--font-h-size);
+}
+
+@media (width <= 650px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--el-gap);
+        padding: var(--top-margin) 0;
+    }
+    .controlls-container {
+        margin: 0;
+    }
+}
+@media (width <= 400px) {
+    .controlls-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .controlls-container .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }

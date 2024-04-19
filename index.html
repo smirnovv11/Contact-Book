@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/contact-book.svg" type="image/x-icon">
     <title>Contact Book</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
             <h2 class="title">Книга контактов</h2>
         </div>
         <div class="controlls-container">
-            <button class="btn red-btn">
+            <button id="contactsBtn" class="btn red-btn">
                 Добавить контактов
                 <img src="img/plus.svg"/>
             </button>
@@ -21,14 +22,14 @@
         </div>
     </div>
 
-    <div class="groups-left-panel">
+    <div class="left-panel">
         <div class="panel-controlls">
             <div>
                 <div class="panel-header">
                     <h2>Группы контактов</h2>
                     <button id="close-panel-btn" class="btn"><img src="img/cross.svg"></button>
                 </div>
-                <div class="groups-container">
+                <div class="el-container">
                     
                 </div>
             </div>
@@ -39,10 +40,32 @@
         </div>
     </div>
 
+    <div id="contacts-panel" class="left-panel">
+        <div class="panel-controlls">
+            <div>
+                <div class="panel-header">
+                    <h2>Добавление контакта</h2>
+                    <button id="close-panel-btn" class="btn"><img src="img/cross.svg"></button>
+                </div>
+                <div class="el-container">
+                    <input type="text" maxlength="100" placeholder="Введите ФИО">
+                    <input type="text" maxlength="100" placeholder="Введите номер">
+                    <select>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="bott-controlls">
+                <button class="btn save-group-btn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
     <div class="contact-book-container">
         <p>Список контактов пуст</p>
     </div>
-    <script src="script.js"></script>
-    <script src="groupsPanel.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/groupsPanel.js"></script>
+    <script src="scripts/contactsPanel.js"></script>
 </body>
 </html>
