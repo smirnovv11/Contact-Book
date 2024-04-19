@@ -1,16 +1,14 @@
-const groupsBtn = document.querySelector('#groupsBtn')
-const groupsLeftPanel = document.querySelector('.groups-left-panel')
-const closePanel = document.querySelector('#close-panel-btn')
+if (localStorage.getItem('identifiers') === null) {
+    localStorage.setItem('identifiers', JSON.stringify({
+        groupId: 0,
+        contactId: 0
+    }))
+}
 
-groupsBtn.addEventListener('click', (e) => {
-    groupsLeftPanel.classList.toggle('active')
-})
+let identifiers = JSON.parse(localStorage.getItem('identifiers'))
 
-groupsLeftPanel.addEventListener('click', function(event) {
-    if (event.target === groupsLeftPanel) {
-        groupsLeftPanel.classList.remove('active');
-    }
-});
-closePanel.addEventListener('click', function(event) {
-    groupsLeftPanel.classList.remove('active');
-});
+let getFreeGroupId = () => {
+    identifiers.groupId += 1
+    localStorage.setItem('identifiers', JSON.stringify(identifiers))
+    return identifiers.groupId
+}

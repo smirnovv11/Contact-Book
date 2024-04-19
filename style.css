@@ -211,5 +211,4 @@ input:focus {
     opacity: 0.3;
     font-weight: 500;
     font-size: var(--font-h-size);
-    height: 2000px;
 }
