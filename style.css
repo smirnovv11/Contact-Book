@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --top-margin: 24px;
+    --el-gap: 16px;
+    --radius: 6px;
+
+    --primary-color: #005BFE;
+    --primary-hover-color: #0047C6;
+    --alt-color: #F81155;
+    --alt-hover-color: #D1003E;
+    --delete-color: #EA3D2F;
+    --back-color: #F6F7F9;
+
+    --font-family: "Roboto", sans-serif;
+    --font-size: 14px;
+    --font-h-size: 18px;
+    --font-weight: 700;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: var(--back-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 20px 0px rgba(0,0,0,0.05);
+    z-index: 100;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: var(--el-gap);
+    color: var(--primary-color);
+    user-select: none;
+    pointer-events: none;
+}
+.title {
+    font-size: var(--font-h-size);
+    font-weight: var(--font-weight);
+    margin: 0;
+}
+
+.controlls-container {
+    display: flex;
+    gap: var(--el-gap);
+    margin: var(--top-margin) 0px;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: var(--font-size);
+    font-weight: 500;
+    font-family: var(--font-family);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.btn:hover {
+    background-color: var(--primary-hover-color);
+}
+
+.red-btn {
+    background-color: var(--alt-color);
+}
+.red-btn:hover {
+    background-color: var(--alt-hover-color);
+}
+
+.contact-book-container {
+
+}
+
+.contact-book-container > p {
+    margin: 0;
+    font-family: var(--font-family);
+    opacity: 0.3;
+    font-weight: 500;
+    font-size: var(--font-h-size);
+}
