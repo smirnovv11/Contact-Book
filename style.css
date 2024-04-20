@@ -181,6 +181,10 @@ body.active {
     transition: .2s ease-in-out;
     appearance: none;
 }
+.group-select:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
 .group-element {
     display: flex;
     align-self: center;
@@ -203,6 +207,7 @@ input {
 }
 input:focus {
     outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 .error {
     border: 1px solid var(--delete-color);
@@ -278,7 +283,7 @@ input:focus {
     font-weight: var(--font-weight);
     font-size: var(--font-h-size);
     margin: 0;
-    transition: .2s ease-in-out;
+    transition: .0s ease-in-out;
 }
 .droplist-head > p.active {
     color: var(--primary-color);

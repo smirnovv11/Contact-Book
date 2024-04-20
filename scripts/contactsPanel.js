@@ -91,7 +91,11 @@ saveContactBtn.addEventListener('click', () => {
         existContact[0].name = nameInput.value
         existContact[0].phone = phoneInput.value,
         existContact[0].groupId = contactSelect.options[contactSelect.selectedIndex].value
-        console.log(contacts.filter(c => c.id == currContactId)[0])
+
+        let p = document.getElementById('c' + currContactId).parentElement.previousElementSibling
+        p.innerHTML = phoneInput.value
+        p.parentElement.previousElementSibling.innerHTML = nameInput.value
+        localStorage.setItem('contacts', JSON.stringify(contacts))
     }
     else {
         currContactId = getFreeContactId()
@@ -99,10 +103,10 @@ saveContactBtn.addEventListener('click', () => {
         contact.id = currContactId
 
         addContact(contact)
+        updateBook()
     }
 
     onClose()
-    updateBook()
 })
 
 let isValid = () => {
