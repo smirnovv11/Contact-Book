@@ -23,7 +23,6 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    width: 100%;
     background-color: var(--back-color);
     position: relative;
     display: flex;
@@ -45,10 +44,16 @@ body.active {
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #FFFFFF;
     box-shadow: 0px 4px 20px 0px rgba(0,0,0,0.05);
     z-index: 100;
+}
+.header > div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1160px;
+    width: 90%;
 }
 
 .title-container {
@@ -122,7 +127,8 @@ body.active {
 .panel-controlls {
     background-color: #FFFFFF;
     height: 100%;
-    width: 312px;
+    max-width: 312px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -230,7 +236,6 @@ input:focus {
     background-color: var(--light-primary-hover-color);
 }
 .edit-btn {
-    margin-right: 8px;
     background-color: transparent;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -247,7 +252,7 @@ input:focus {
 
 .contact-book-container {
     max-width: 1160px;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: var(--top-margin);
@@ -258,7 +263,6 @@ input:focus {
     background-color: #FFFFFF;
     border-radius: var(--radius);
     padding: var(--top-margin);
-    width: 100%;
     cursor: pointer;
 }
 .droplist-head {
@@ -295,6 +299,10 @@ input:focus {
     display: flex; 
     align-items: center;
 }
+.contact-controlls > div {
+    display: flex;
+    gap: 8px;
+}
 hr {
     height: 1px;
     background-color: rgba(0, 0, 0, 0.1);
@@ -320,9 +328,21 @@ hr {
     font-size: var(--font-h-size);
     user-select: none;
 }
-
-@media (width <= 650px) {
-    .header {
+@media (width <= 700px) {
+    .contacts-container > div{
+        display: flex;
+        flex-direction: column;
+        gap: var(--el-gap);
+        width: 100%;
+        align-items: flex-start;
+    }
+    .contact-controlls {
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+@media (width <= 630px) {
+    .header > div {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -333,6 +353,9 @@ hr {
     .controlls-container {
         margin: 0;
     }
+    body.active {
+        margin-top: 166px;
+    }
 }
 @media (width <= 400px) {
     .controlls-container {
@@ -342,5 +365,20 @@ hr {
     .controlls-container .btn {
         width: 100%;
         justify-content: center;
+    }
+    body.active {
+        margin-top: 215px;
+    }
+    .contact-controlls > p {
+        margin: 0;
+    }
+    .contact-controlls {
+        flex-direction: column;
+        gap: var(--el-gap);
+        text-align: center;
+    }
+    .contacts-container > div {
+        align-items: center;
+        text-align: center;
     }
 }
