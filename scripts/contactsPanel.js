@@ -7,7 +7,7 @@ let nameInput = contactsPanel.querySelector('#fullname')
 const phoneInput = contactsPanel.querySelector('#phonenumber')
 const saveContactBtn = contactsPanel.querySelector('.save-group-btn')
 
-addContactBtn.addEventListener('click', () => {
+let openContactPanel = () => {
     contactsPanel.classList.toggle('active')
     
     groups.forEach(el => {
@@ -16,6 +16,11 @@ addContactBtn.addEventListener('click', () => {
         option.text = el.name
         contactSelect.append(option)
     });
+}
+
+addContactBtn.addEventListener('click', () => {
+    currContactId = -1
+    openContactPanel()
 })
 
 let onClose = () => {
@@ -67,18 +72,37 @@ phoneInput.addEventListener("input", mask, false);
 phoneInput.addEventListener("focus", mask, false);
 phoneInput.addEventListener("blur", mask, false);
 
+let currContactId = -1
+
 saveContactBtn.addEventListener('click', () => {
 
     if (!isValid())
         return
-    
+
     let contact = {
-        id: getFreeContactId(),
+        id: currContactId,
         name: nameInput.value,
         phone: phoneInput.value,
         groupId: contactSelect.options[contactSelect.selectedIndex].value
     }
-    addContact(contact)
+
+    let existContact = contacts.filter(c => c.id == currContactId)
+    if (existContact.length === 1) {
+        existContact[0].name = nameInput.value
+        existContact[0].phone = phoneInput.value,
+        existContact[0].groupId = contactSelect.options[contactSelect.selectedIndex].value
+        console.log(contacts.filter(c => c.id == currContactId)[0])
+    }
+    else {
+        currContactId = getFreeContactId()
+
+        contact.id = currContactId
+
+        addContact(contact)
+    }
+
+    onClose()
+    updateBook()
 })
 
 let isValid = () => {
@@ -109,4 +133,16 @@ let isValid = () => {
     }
 
     return res
+}
+
+let loadForEdit = (id) => {
+
+    openContactPanel()
+
+    let obj = contacts.filter(c => c.id == id)[0]
+
+    currContactId = obj.id
+    nameInput.value = obj.name
+    phoneInput.value = obj.phone
+    contactSelect.value = obj.groupId
 }

@@ -1,4 +1,3 @@
-let groups = JSON.parse(localStorage.getItem('groups'))
 
 const groupsBtn = document.querySelector('#groupsBtn')
 const groupsLeftPanel = document.querySelector('.left-panel')
@@ -56,6 +55,8 @@ saveBtn.addEventListener('click', () => {
     localStorage.setItem('groups', JSON.stringify(groups))
     groupsLeftPanel.classList.remove('active');
     groupsContainer.innerHTML = ''
+
+    updateBook()
 })
 
 addBtn.addEventListener('click', () => {
