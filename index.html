@@ -48,10 +48,10 @@
                     <button id="close-panel-btn" class="btn"><img src="img/cross.svg"></button>
                 </div>
                 <div class="el-container">
-                    <input type="text" maxlength="100" placeholder="Введите ФИО">
-                    <input type="text" maxlength="100" placeholder="Введите номер">
-                    <select>
-                        
+                    <input type="text" id="fullname" maxlength="100" placeholder="Введите ФИО">
+                    <input type="text" id="phonenumber" maxlength="100" placeholder="Введите номер">
+                    <select class="group-select" title="Выберите группу">
+                        <option value="" disabled selected>Выберите группу</option>
                     </select>
                 </div>
             </div>
@@ -62,7 +62,10 @@
     </div>
 
     <div class="contact-book-container">
-        <p>Список контактов пуст</p>
+        <!-- <p>Список контактов пуст</p> -->
+        <div class="group-droplist">
+            
+        </div>
     </div>
     <script src="scripts/script.js"></script>
     <script src="scripts/groupsPanel.js"></script>

@@ -154,8 +154,19 @@ body {
     flex-direction: column;
     margin: var(--top-margin);
 }
-.el-container > select {
-    
+.group-select {
+    background: url(img/arrow-down.png) no-repeat right;
+    background-position-x: calc(100% - 8px);
+    background-color: rgba(0, 0, 0, 0.05);
+    color: black;
+    font-weight: 500;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    border: 1px solid rgba(0, 0, 0, 0.00);
+    border-radius: var(--radius);
+    padding: 11px 12px;
+    transition: .2s ease-in-out;
+    appearance: none;
 }
 .group-element {
     display: flex;
@@ -172,12 +183,16 @@ input {
     font-weight: 500;
     font-family: var(--font-family);
     font-size: var(--font-size);
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.00);
     border-radius: var(--radius);
     padding: 11px 12px;
+    transition: .2s ease-in-out;
 }
 input:focus {
     outline: none;
+}
+.error {
+    border: 1px solid var(--delete-color);
 }
 .delete-group-btn {
     background-color: transparent;
@@ -211,12 +226,17 @@ input:focus {
 
 }
 
+.group-droplist {
+    
+}
+
 .contact-book-container > p {
     margin: 0;
     font-family: var(--font-family);
     opacity: 0.3;
     font-weight: 500;
     font-size: var(--font-h-size);
+    user-select: none;
 }
 
 @media (width <= 650px) {
